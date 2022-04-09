@@ -1,0 +1,27 @@
+from botcity.core import DesktopBot
+
+class Bot(DesktopBot):
+    def action(self, execution=None):
+
+        self.execute("C:/Users/fcopr/AppData/Local/WhatsApp/WhatsApp.exe")
+
+        if not self.find( "user", matching=0.97, waiting_time=30000):
+            self.not_found("user")
+        self.click()
+
+        if not self.find( "text", matching=0.97, waiting_time=10000):
+            self.not_found("text")
+        self.click()
+
+        self.paste("teste teste teste")
+
+        if not self.find("send", matching=0.97, waiting_time=10000):
+            self.not_found("send")
+        self.click()
+
+    def not_found(self, label):
+        print(f"Element not found: {label}")
+
+
+if __name__ == '__main__':
+    Bot.main()
