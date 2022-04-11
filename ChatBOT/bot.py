@@ -1,3 +1,5 @@
+from multiprocessing.connection import wait
+from time import sleep
 from botcity.core import DesktopBot
 
 class Bot(DesktopBot):
@@ -24,7 +26,7 @@ class Bot(DesktopBot):
         if not self.find("send", matching=0.97, waiting_time=10000):
             self.not_found("send")
         self.click()
-
+        sleep(5)
         self.alt_f4()
 
         self.execute("C:/Users/fcopr/AppData/Local/WhatsApp/WhatsApp.exe")
